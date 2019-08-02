@@ -28,14 +28,14 @@ abstract class EsitoResponse {
 }
 
 class GetStatusGiardino extends EsitoResponse {
-  bool statusGiaridno;
+  bool statusGiardino;
   GetCurrentTaskGiardino taskGiardinoDetail;
 
   GetStatusGiardino(Map<String, dynamic> map) : super(map) {
     if (!map['esito']) {
       return;
     }
-    statusGiaridno = map['data']['statusGiardino'];
+    statusGiardino = map['data']['statusGiardino'];
     taskGiardinoDetail = map['data']['currentTask'] != null
         ? GetCurrentTaskGiardino(map['data'])
         : null;

@@ -22,7 +22,7 @@ class _IrrigationHomeScreenState extends State<IrrigationHomeScreen> {
           if (snapshot.hasData) {
             return Column(children: <Widget>[
               Text('esito: ${snapshot.data.esito}'),
-              Text('status: ${snapshot.data.statusGiaridno}'),
+              Text('status: ${snapshot.data.statusGiardino}'),
               Text('task: ${snapshot.data.taskGiardinoDetail}'),
             ]);
           }
