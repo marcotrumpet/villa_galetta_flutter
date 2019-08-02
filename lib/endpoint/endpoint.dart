@@ -1,5 +1,5 @@
 class Endpoint {
-  static const BASIC_URL = "http://192.168.178.7:8080/giardino/";
+  static const BASIC_URL = "http://csaeqh3j9re4exej.myfritz.net:8440/giardino/";
   static const STATUS = "status";
   static const ALWAYS_ON = "always/on";
   //Accende a tempo indefinito l'irrigazione
@@ -16,6 +16,11 @@ class Endpoint {
 }
 
 class EndpointParameters {
+  Map<String, String> headers = {
+    "Authorization":
+    "Basic Z2lhcmRpbm86bnNmdVl5V0diamsycXhIVg=="
+  };
+
   String getStatusUrl() {
     return Endpoint.BASIC_URL + Endpoint.STATUS;
   }
@@ -36,10 +41,10 @@ class EndpointParameters {
     return Endpoint.BASIC_URL + Endpoint.SCHEDULE_CRONTAB;
   }
 
-  String setScheduledDaily(int minutes, DateTime time) {
+  String setScheduledDaily(int minutes, int hour, int minute) {
     return Endpoint.BASIC_URL +
         Endpoint.SCHEDULE_DAILY +
-        'duration=${minutes.toString()}&startTime=${time.hour}:${time.minute}';
+        'duration=${minutes.toString()}&startTime=$hour:$minute';
   }
 
   String setRemoveScheduledTask(String guid) {

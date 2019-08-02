@@ -13,14 +13,18 @@ class _IrrigationHomeScreenState extends State<IrrigationHomeScreen> {
     return Container(
       child: FutureBuilder(
         future: _irrigationStatusService.getStatus(),
-        builder: (context, AsyncSnapshot<Get> snapshot) {
+        builder: (context, AsyncSnapshot<GetStatusGiardino> snapshot) {
           if (snapshot.hasError) {
             return Center(
               child: Text(snapshot.error),
             );
           }
           if (snapshot.hasData) {
-            return Container(child: Text(snapshot.data.status ? 'Acceso' : 'Spento'),);
+            return Column(children: <Widget>[
+              Text('esito: ${snapshot.data.esito}'),
+              Text('status: ${snapshot.data.statusGiaridno}'),
+              Text('task: ${snapshot.data.taskGiardinoDetail}'),
+            ]);
           }
           return CircularProgressIndicator();
         },
