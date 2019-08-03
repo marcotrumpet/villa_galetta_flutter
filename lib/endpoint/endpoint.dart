@@ -1,5 +1,6 @@
+import 'package:villa_galetta_flutter/endpoint/serverconfig.dart';
+
 class Endpoint {
-  static const BASIC_URL = "http://csaeqh3j9re4exej.myfritz.net:8440/giardino/";
   static const STATUS = "status";
   static const ALWAYS_ON = "always/on";
   //Accende a tempo indefinito l'irrigazione
@@ -16,38 +17,34 @@ class Endpoint {
 }
 
 class EndpointParameters {
-  Map<String, String> headers = {
-    "Authorization":
-    "Basic Z2lhcmRpbm86bnNmdVl5V0diamsycXhIVg=="
-  };
 
   String getStatusUrl() {
-    return Endpoint.BASIC_URL + Endpoint.STATUS;
+    return ServerConfig.BASIC_URL + Endpoint.STATUS;
   }
 
   String getAlwaysOnUrl() {
-    return Endpoint.BASIC_URL + Endpoint.ALWAYS_ON;
+    return ServerConfig.BASIC_URL + Endpoint.ALWAYS_ON;
   }
 
   String getAlwaysOffUrl() {
-    return Endpoint.BASIC_URL + Endpoint.ALWAYS_OFF;
+    return ServerConfig.BASIC_URL + Endpoint.ALWAYS_OFF;
   }
 
   String getOnForMinutesUrl(int minutes) {
-    return Endpoint.BASIC_URL + Endpoint.ON_MINUTES + minutes.toString();
+    return ServerConfig.BASIC_URL + Endpoint.ON_MINUTES + minutes.toString();
   }
 
   String getScheduledTask() {
-    return Endpoint.BASIC_URL + Endpoint.SCHEDULE_CRONTAB;
+    return ServerConfig.BASIC_URL + Endpoint.SCHEDULE_CRONTAB;
   }
 
   String setScheduledDaily(int minutes, int hour, int minute) {
-    return Endpoint.BASIC_URL +
+    return ServerConfig.BASIC_URL +
         Endpoint.SCHEDULE_DAILY +
         'duration=${minutes.toString()}&startTime=$hour:$minute';
   }
 
   String setRemoveScheduledTask(String guid) {
-    return Endpoint.BASIC_URL + Endpoint.REMOVE_SCHEDULE + guid;
+    return ServerConfig.BASIC_URL + Endpoint.REMOVE_SCHEDULE + guid;
   }
 }

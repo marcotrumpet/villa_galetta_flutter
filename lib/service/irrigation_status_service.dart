@@ -8,7 +8,7 @@ class IrrigationStatusService {
   Future<GetStatusGiardino> getStatus() async {
     String url = EndpointParameters().getStatusUrl();
 
-    Response response = await get(url, headers: EndpointParameters().headers);
+    Response response = await get(url, headers: ServerConfig().authHeaders);
 
     if (response.statusCode == 200) {
         return GetStatusGiardino(json.decode(response.body));
