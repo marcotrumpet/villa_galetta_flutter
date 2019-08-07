@@ -13,10 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(
-        color: Colors.white,
-        child: MyHomePage(),
-      ),
+      home: MyHomePage(),
     );
   }
 }
@@ -31,12 +28,15 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: true,
-      bottom: true,
-      child: Scaffold(
-        body:
-            IrrigationHomeScreen(), // This trailing comma makes auto-formatting nicer for build methods.
+    return Container(
+      color: Colors.white,
+      child: SafeArea(
+        top: true,
+        bottom: true,
+        child: Scaffold(
+          body:
+              IrrigationHomeScreen(), // This trailing comma makes auto-formatting nicer for build methods.
+        ),
       ),
     );
   }

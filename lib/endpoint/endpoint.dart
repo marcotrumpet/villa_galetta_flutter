@@ -2,10 +2,8 @@ import 'package:villa_galetta_flutter/endpoint/serverconfig.dart';
 
 class Endpoint {
   static const STATUS = "status";
-  static const ALWAYS_ON = "always/on";
+  static const ALWAYS_ONOFF = "always/";
   //Accende a tempo indefinito l'irrigazione
-  static const ALWAYS_OFF = "always/off";
-  //Spegne a tempo indefinito l'irrigazione
   static const ON_MINUTES = "on/";
   //Accende per un tempo di MINUTES l'irrigazione
   static const SCHEDULE_CRONTAB = "schedule";
@@ -22,12 +20,8 @@ class EndpointParameters {
     return ServerConfig.BASIC_URL + Endpoint.STATUS;
   }
 
-  String getAlwaysOnUrl() {
-    return ServerConfig.BASIC_URL + Endpoint.ALWAYS_ON;
-  }
-
-  String getAlwaysOffUrl() {
-    return ServerConfig.BASIC_URL + Endpoint.ALWAYS_OFF;
+  String getAlwaysOnOffUrl(String onOff) {
+    return ServerConfig.BASIC_URL + Endpoint.ALWAYS_ONOFF + onOff;
   }
 
   String getOnForMinutesUrl(int minutes) {
