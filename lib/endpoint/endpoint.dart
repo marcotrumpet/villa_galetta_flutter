@@ -1,4 +1,4 @@
-import 'package:villa_galetta_flutter/endpoint/serverconfig.dart';
+import 'package:villa_galetta_flutter/endpoint/server_config.dart';
 
 class Endpoint {
   static const STATUS = "status";
@@ -15,7 +15,6 @@ class Endpoint {
 }
 
 class EndpointParameters {
-
   String getStatusUrl() {
     return ServerConfig.BASIC_URL + Endpoint.STATUS;
   }

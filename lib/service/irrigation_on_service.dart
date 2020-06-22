@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:villa_galetta_flutter/endpoint/endpoint.dart';
-import 'package:villa_galetta_flutter/endpoint/serverconfig.dart';
+import 'package:villa_galetta_flutter/endpoint/server_config.dart';
 import 'package:villa_galetta_flutter/response/irrigation_on.dart';
 
 class IrrigationOnService {
